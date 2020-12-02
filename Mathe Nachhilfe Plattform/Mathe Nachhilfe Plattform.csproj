@@ -1,0 +1,99 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Mathe_Nachhilfe_Plattform</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Login\NewFolder1\**" />
+    <Compile Remove="Views\Login\NewFolder\**" />
+    <Compile Remove="Views\NewFolder\**" />
+    <Compile Remove="wwwroot\lib\twitter-bootstrap\scss\**" />
+    <Content Remove="Views\Login\NewFolder1\**" />
+    <Content Remove="Views\Login\NewFolder\**" />
+    <Content Remove="Views\NewFolder\**" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\**" />
+    <EmbeddedResource Remove="Views\Login\NewFolder1\**" />
+    <EmbeddedResource Remove="Views\Login\NewFolder\**" />
+    <EmbeddedResource Remove="Views\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\lib\twitter-bootstrap\scss\**" />
+    <None Remove="Views\Login\NewFolder1\**" />
+    <None Remove="Views\Login\NewFolder\**" />
+    <None Remove="Views\NewFolder\**" />
+    <None Remove="wwwroot\lib\twitter-bootstrap\scss\**" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <Content Remove="wwwroot\favicon.ico" />
+    <Content Remove="wwwroot\lib\animate.css" />
+    <Content Remove="wwwroot\lib\animsition.css" />
+    <Content Remove="wwwroot\lib\animsition.js" />
+    <Content Remove="wwwroot\lib\animsition.min.css" />
+    <Content Remove="wwwroot\lib\animsition.min.js" />
+    <Content Remove="wwwroot\lib\bootstrap-grid.css" />
+    <Content Remove="wwwroot\lib\bootstrap-grid.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap-grid.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap-grid.min.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap-reboot.css" />
+    <Content Remove="wwwroot\lib\bootstrap-reboot.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap-reboot.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap-reboot.min.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap.css" />
+    <Content Remove="wwwroot\lib\bootstrap.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap.js" />
+    <Content Remove="wwwroot\lib\bootstrap.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap.min.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap.min.js" />
+    <Content Remove="wwwroot\lib\countdowntime.js" />
+    <Content Remove="wwwroot\lib\daterangepicker.css" />
+    <Content Remove="wwwroot\lib\daterangepicker.js" />
+    <Content Remove="wwwroot\lib\font-awesome.css" />
+    <Content Remove="wwwroot\lib\font-awesome.min.css" />
+    <Content Remove="wwwroot\lib\fontawesome-webfont.eot" />
+    <Content Remove="wwwroot\lib\fontawesome-webfont.svg" />
+    <Content Remove="wwwroot\lib\fontawesome-webfont.ttf" />
+    <Content Remove="wwwroot\lib\fontawesome-webfont.woff" />
+    <Content Remove="wwwroot\lib\fontawesome-webfont.woff2" />
+    <Content Remove="wwwroot\lib\FontAwesome.otf" />
+    <Content Remove="wwwroot\lib\hamburgers.css" />
+    <Content Remove="wwwroot\lib\hamburgers.min.css" />
+    <Content Remove="wwwroot\lib\jquery-3.2.1.min.js" />
+    <Content Remove="wwwroot\lib\moment.js" />
+    <Content Remove="wwwroot\lib\moment.min.js" />
+    <Content Remove="wwwroot\lib\perfect-scrollbar.css" />
+    <Content Remove="wwwroot\lib\perfect-scrollbar.min.js" />
+    <Content Remove="wwwroot\lib\popper.js" />
+    <Content Remove="wwwroot\lib\popper.min.js" />
+    <Content Remove="wwwroot\lib\select2.css" />
+    <Content Remove="wwwroot\lib\select2.js" />
+    <Content Remove="wwwroot\lib\select2.min.css" />
+    <Content Remove="wwwroot\lib\select2.min.js" />
+    <Content Remove="wwwroot\lib\tooltip.js" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <None Remove="styles\StyleSheetLogin.css" />
+    <None Remove="Views\Login\Login_v6.zip" />
+    <None Remove="Views\Login\StyleSheet.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\dokument\" />
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+
+</Project>

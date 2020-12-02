@@ -1,0 +1,128 @@
+﻿@model Mathe_Nachhilfe_Plattform.Models.user
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Login/_LayoutPage1.cshtml";
+}
+
+<h1>Mathe Nachhilfe Plattform</h1>
+<br />
+<h1>Registriern</h1>
+<!DOCTYPE html>
+
+<head>
+    <title>Mathe Nachhilfe Plattform</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class=" container">
+        <div class="img">
+            <img src="~/lib/images/undraw_Work_time_re_hdyv.svg" />
+        </div>
+        <div class="login-container">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             
+                <div class="form-group">
+                    <div class="input-div one focus">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 asp-for="vorname" class="control-label">vorname </h5>
+                            <input asp-for="vorname" placeholder="vorname" class="form-control" type="text" />
+                            <span asp-validation-for="vorname" class="text-danger"></span>
+                        </div> 
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-div one focus">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 asp-for="nachname" class="control-label">nachname</h5>
+                            <input asp-for="nachname" placeholder="nachname" class="form-control" type="text" />
+                            <span asp-validation-for="nachname" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-div one focus">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 asp-for="adresse" class="control-label">adresse</h5>
+                            <input asp-for="adresse" placeholder="adresse" class="form-control" type="text" />
+                            <span asp-validation-for="adresse" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-div one focus">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 asp-for="email" class="control-label">email</h5>
+                            <input asp-for="email" placeholder="email" class="form-control" type="text" />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-div one focus">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 asp-for="mobile" class="control-label">mobile</h5>
+                            <input asp-for="mobile" placeholder="mobile" class="form-control" type="text" />
+                            <span asp-validation-for="mobile" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-div one focus">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 asp-for="password" class="control-label">password</h5>
+                            <input asp-for="password" placeholder="password" class="form-control" type="password" />
+                            <span asp-validation-for="password" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" value="Registriern" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <br />
+    <div>
+        <a asp-action="Index" >Back to List</a>
+    </div>
+</body>
+
+
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - Mathe_Nachhilfe_Plattform  
+    </div>
+</footer>

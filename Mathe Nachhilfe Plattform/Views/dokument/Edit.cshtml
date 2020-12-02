@@ -1,0 +1,126 @@
+﻿@model Mathe_Nachhilfe_Plattform.ViewModels.DokumentUserViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Login/_LayoutPage1.cshtml";
+}
+
+<h1>Mathe Nachhilfe Plattform</h1>
+<br />
+<h1> Dokument Edit</h1>
+<!DOCTYPE html>
+
+<head>
+    <title>Mathe Nachhilfe Plattform</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class=" container">
+        <div class="img">
+            <img src="~/lib/images/undraw_Work_time_re_hdyv.svg" />
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <div class="input-div one focus">
+
+                            <div class="i">
+                                <i class="fas fa-user"></i>
+
+                            </div>
+
+                            <div>
+                                <label asp-for="DokumentID" class="control-label"></label>
+                                <input readonly asp-for="DokumentID" class="form-control" />
+                                <span asp-validation-for="DokumentID" class="text-danger"></span>
+                            </div>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <div class="input-div one focus">
+
+                                    <div class="i">
+                                        <i class="fas fa-user"></i>
+
+                                    </div>
+
+                                    <div>
+                                        <label asp-for="Title" class="control-label"></label>
+                                        <input asp-for="Title" class="form-control" />
+                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-div one focus">
+
+                                    <div class="i">
+                                        <i class="fas fa-user"></i>
+
+                                    </div>
+
+                                    <div>
+                                        <label asp-for="Description" class="control-label"></label>
+                                        <input asp-for="Description" class="form-control" />
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-div one focus">
+
+                                    <div class="i">
+                                        <i class="fas fa-user"></i>
+
+                                    </div>
+
+                                    <div>
+                                        <h5> <input type="file" name="DokumentFile" asp-for="File" class="form-control" /></h5>
+                                        <img src="~/uploads/@Model.DokumentUrl" style="width:124px;" class="img-thumbnail" />
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="DokumentUrl" class="form-control" />
+                            <div class="form-group">
+                                <div class="input-div one focus">
+
+                                    <div class="i">
+                                        <i class="fas fa-user"></i>
+
+                                    </div>
+
+                                    <div>
+                                        <label asp-for="UserID" class="control-label"></label>
+                                        <select asp-for="UserID" class="form-control"
+                                                asp-items="@(new SelectList(Model.Users, "id","nachname"))"></select>
+                                        <span asp-validation-for="UserID" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+</form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - Mathe_Nachhilfe_Plattform
+    </div>
+</footer>
+
+@section Scripts {
+    <partial name="_validation" />
+}

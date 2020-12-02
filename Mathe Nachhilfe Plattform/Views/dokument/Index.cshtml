@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Mathe_Nachhilfe_Plattform.Models.dokument>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Login/_LayoutPage1.cshtml";
+}
+
+<h1>Mathe Nachhilfe Plattform</h1>
+<br />
+<h1>Dokument View </h1>
+
+
+<body>
+    <div class=" container">
+        <div class="img">
+            <img src="~/lib/images/undraw_Work_time_re_hdyv.svg" />
+        </div>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.description)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.user)
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.user)
+                        </td>
+                        <td>
+                            @if (item.DokumentUrl != null)
+                            {
+                                <img src="~/uploads/@item.DokumentUrl" style="width:64px;" class="img-thumbnail" />
+
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</body>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - Mathe_Nachhilfe_Plattform
+    </div>
+</footer>

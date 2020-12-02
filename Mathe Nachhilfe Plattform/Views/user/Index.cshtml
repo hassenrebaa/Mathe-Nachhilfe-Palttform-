@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Mathe_Nachhilfe_Plattform.Models.user>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Login/_LayoutPage1.cshtml";
+}
+<h1>Mathe Nachhilfe Plattform</h1>
+<br />
+<h1>User View</h1>
+
+<body>
+    <div class=" container">
+        <div class="img">
+            <img src="~/lib/images/undraw_Work_time_re_hdyv.svg" />
+        </div>
+
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.vorname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nachname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.adresse)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.mobile)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.vorname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nachname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.adresse)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mobile)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</body>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - Mathe_Nachhilfe_Plattform
+    </div>
+</footer>

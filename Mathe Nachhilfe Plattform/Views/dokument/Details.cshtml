@@ -1,0 +1,70 @@
+﻿@model Mathe_Nachhilfe_Plattform.Models.dokument
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Login/_LayoutPage1.cshtml";
+}
+
+<h1>Mathe Nachhilfe Plattform</h1>
+<br />
+<h1> Dokument Details</h1>
+<!DOCTYPE html>
+
+<head>
+    <title>Mathe Nachhilfe Plattform</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class=" container">
+        <div class="img">
+            <img src="~/lib/images/undraw_Work_time_re_hdyv.svg" />
+        </div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.description)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.user.nachname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.user.nachname)
+            </dd>
+            @if (Model.DokumentUrl != null)
+            {
+                <dt>
+                    Image:
+                </dt>
+                <dd>
+
+                    <img src="~/uploads/@Model.DokumentUrl" style="width:64px;" class="img-thumbnail" />
+                </dd>
+            }
+            </dl>
+    </div> 
+    
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - Mathe_Nachhilfe_Plattform
+    </div>
+</footer>
+

@@ -1,0 +1,108 @@
+﻿@model Mathe_Nachhilfe_Plattform.ViewModels.DokumentUserViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Login/_LayoutPage1.cshtml";
+}
+
+<h1>Mathe Nachhilfe Plattform</h1>
+<br />
+<h1> ADD Dokument</h1>
+<!DOCTYPE html>
+
+<head>
+    <title>Mathe Nachhilfe Plattform</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class=" container">
+        <div class="img">
+            <img src="~/lib/images/undraw_Work_time_re_hdyv.svg" />
+        </div>
+
+        <div class="login-container">
+            <form asp-action="Create" enctype="multipart/form-data">
+                @if (ViewBag.Message != null)
+                {
+                    <h5 class="alert alert-danger ">@ViewBag.Message</h5>
+                }
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                <div class="form-group">
+                    <div class="input-div one focus">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 asp-for="Title" class="control-label">Title </h5>
+                            <input asp-for="Title" placeholder="Title" class="form-control" type="text" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-div one focus">
+
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+
+                        </div>
+
+                        <div>
+                            <h5 asp-for="Description" class="control-label">Description </h5>
+                            <input asp-for="Description" placeholder="Description" class="form-control" type="text" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-div one focus">
+
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+
+                        </div>
+
+                        <h5>  <input type="file" name="DokumentFile" required /></h5>
+
+
+                    </div>
+                </div>
+
+            
+
+
+
+
+
+
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - Mathe_Nachhilfe_Plattform
+    </div>
+</footer>
+
+@section Scripts {
+<partial name="_validation" />
+}
