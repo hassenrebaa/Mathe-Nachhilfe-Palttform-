@@ -1,14 +1,15 @@
-﻿@model plattform.users_tbl
-
+﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "afterLogin";
 }
 
+
 <h1>Mathe Nachhilfe Plattform</h1>
+<h2> Welcome cher User </h2>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>afterLogin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -178,18 +179,11 @@
             color: #555;
         }
 
-        a {
-            display: block;
-            text-align: right;
-            text-decoration: none;
-            color: #999;
-            font-size: 0.9rem;
-            transition: .3s;
-        }
 
-            a:hover {
-                color: #38d39f;
-            }
+
+        a:hover {
+            color: #38d39f;
+        }
 
         .btn {
             display: block;
@@ -223,52 +217,18 @@
 
             <img src="~/image/undraw_Work_time_re_hdyv.svg" />
         </div>
-        <div class="login-container">
-            @using (Html.BeginForm("loginn", "Login", FormMethod.Post))
-            {
-                <br />
-                <img class="avatar" src="~/image/undraw_male_avatar_323b.svg" />
-
-                <h2>Welcome</h2>
-                <div class="input-div one focus">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div>
-                        @Html.LabelFor(model => model.email)
-                        @Html.EditorFor(model => model.email)
-                    </div>
-                    <p>@Html.ValidationMessageFor(model => model.email)</p>
-                </div>
-                <div class="input-div two">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div>
-                        @Html.LabelFor(model => model.passeword)
-                        @Html.EditorFor(model => model.passeword)
-                    </div>
-
-                    <p>@Html.ValidationMessageFor(model => model.passeword)</p>
-                </div>
-                
+    </div>
+    <div class="navbar-collapse collapse">
 
 
-                <input type="submit" id="button" class="btn" name="name" value="Login" />
 
-                <label class="field-validation-error">@Html.DisplayFor(model => model)</label>
-                <a>@Html.ActionLink("Register as New User","AddOrEdit","User")
-            </a>
-                
-            }
-        </div>
+        <a> @Html.ActionLink("User Profil", "UserView", "User") </a>
+        <img src="~/image/user.png" />
+
+
+        <img src="~/image/dokument icon.png" />
+        <a>@Html.ActionLink(" Add Dokument ", "CreateDoc", "Document")</a>
 
     </div>
-    <script type=" text/javascript" src="~/js/site.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 </body>
 </html>
-
-

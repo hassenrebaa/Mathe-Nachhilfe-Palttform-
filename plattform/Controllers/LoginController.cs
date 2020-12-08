@@ -14,9 +14,9 @@ namespace plattform.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Autherize(users_tbl usermodel)
+         public ActionResult loginn(users_tbl usermodel)
         {
-            using(HassenDataBaseEntities db= new HassenDataBaseEntities())
+            using (HassenDataBaseEntities2 db = new HassenDataBaseEntities2())
             {
                 var userDetails = db.users_tbl.Where(x => x.email == usermodel.email && x.passeword == usermodel.passeword).FirstOrDefault();
                 if (userDetails == null)
@@ -25,7 +25,7 @@ namespace plattform.Controllers
                     return View("Index", usermodel);
                 }
                 else
-                    return View("~/Views/User/UserList.cshtml" ,usermodel);
+                    return View("~/Views/User/afterLogin.cshtml", usermodel);
             }
         }
     }

@@ -6,7 +6,7 @@
 
 <h2>Loginpage</h2>
 
-@using (Html.BeginForm("Autherize", "LoginController" , FormMethod.Post)) 
+@using (Html.BeginForm("loginn", "LoginController" , FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
@@ -31,16 +31,17 @@
         
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Passeword, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.passeword, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Passeword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Passeword, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.passeword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.passeword, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
+                <a herf="https://localhost:44326/User/AddOrEdit">Register as a new user </a>
             </div>
         </div>
     </div>

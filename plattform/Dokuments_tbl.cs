@@ -18,5 +18,6 @@ namespace plattform
         public string title { get; set; }
         public string author { get; set; }
         public string FileLocation { get; set; }
+        public byte[] Datei { get; set; }
     }
 }

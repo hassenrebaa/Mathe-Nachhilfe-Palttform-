@@ -1,14 +1,14 @@
-﻿@model plattform.users_tbl
-
+﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Contact";
 }
 
 <h1>Mathe Nachhilfe Plattform</h1>
+<h2>Kontakt </h2>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Contact </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -178,14 +178,7 @@
             color: #555;
         }
 
-        a {
-            display: block;
-            text-align: right;
-            text-decoration: none;
-            color: #999;
-            font-size: 0.9rem;
-            transition: .3s;
-        }
+       
 
             a:hover {
                 color: #38d39f;
@@ -223,52 +216,63 @@
 
             <img src="~/image/undraw_Work_time_re_hdyv.svg" />
         </div>
-        <div class="login-container">
-            @using (Html.BeginForm("loginn", "Login", FormMethod.Post))
-            {
-                <br />
-                <img class="avatar" src="~/image/undraw_male_avatar_323b.svg" />
-
-                <h2>Welcome</h2>
-                <div class="input-div one focus">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div>
-                        @Html.LabelFor(model => model.email)
-                        @Html.EditorFor(model => model.email)
-                    </div>
-                    <p>@Html.ValidationMessageFor(model => model.email)</p>
-                </div>
-                <div class="input-div two">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div>
-                        @Html.LabelFor(model => model.passeword)
-                        @Html.EditorFor(model => model.passeword)
-                    </div>
-
-                    <p>@Html.ValidationMessageFor(model => model.passeword)</p>
-                </div>
-                
-
-
-                <input type="submit" id="button" class="btn" name="name" value="Login" />
-
-                <label class="field-validation-error">@Html.DisplayFor(model => model)</label>
-                <a>@Html.ActionLink("Register as New User","AddOrEdit","User")
-            </a>
-                
-            }
-        </div>
-
     </div>
-    <script type=" text/javascript" src="~/js/site.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <section class="cbg_wildsand contact-forms">
+        <div id="wrapper" class="wrapper clearfix">
+            <div class="column col-12 cbg_wildsand cf_mineshaft1 kontakt">
+                <h2 class="hl_optik1">Unverbindliche Anfrage</h2>
+                <div class="form-errors"></div>
+                <form name="contact" method="post" action="/lang_less/kontakt/anfrage/send" id="contact_form">
+                    <input type="hidden" name="skey" value="5fce08e576029" />
+                    <input type="hidden" name="language" value="de" />
+                    <div class="kontakt_spaltenwrapper">
+                        <div class="kontakt_linkespalte ">
+
+                            <div class="column col-6 select_anrede">
+                                <select name="anrede" id="select_anrede">
+                                    <option value="Herr">Herr</option>
+                                    <option value="Frau">Frau</option>
+                                    <option value="Divers">divers</option>
+                                </select>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <input class="textarea" id="name-1" type="text" name="vorname" placeholder="Vorname *" required value="">
+
+                            <input class="textarea" id="name-2" type="text" name="nachname" placeholder="Nachname *" required value="">
+
+
+
+                            <div class="clearfix"></div>
+                            <input class="textarea telefon1 placeholder" type="text" name="email" placeholder="E-Mail *" required value="">
+                            <input class="textarea telefon2 placeholder" type="tel" name="telefon" placeholder="Telefon *" required value="">
+                            <div class="spez">
+                                <textarea class="textarea_spez" name="anfrage" placeholder="Beschreiben Sie hier gerne weiter Ihren Bedarf!"></textarea>
+                            </div>
+
+                            <input type="submit" class="" value="Unverbindliche Anfrage senden" onclick="submitForm();">
+
+                        </div>
+                    </div>
+                    <h2>Sonst </h2>
+                    <br />
+                   <p class="absatz">
+                    Téléphone :+216.95319637
+                       <br />
+                    Télécopie :+216.75679515
+                    </p>
+
+                    <p class="absatz">
+                   
+                    <span >E-Mail: </span><a href="mailto:info@MatheNachhilfePlattform.com">info@MatheNachhilfePlattform.com</a>
+                    </p>
+                </form>
+
+
+            </div>
+
+        </div>
+    </section>
 </body>
 </html>
-
-

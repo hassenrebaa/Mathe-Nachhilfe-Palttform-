@@ -44,5 +44,29 @@ namespace plattform.Controllers
             ViewBag.SuccessMessage = "Registration Successful";
             return View("AddOrEdit", new users_tbl());
         }
+        //GET 
+        public ActionResult Update()
+        {
+            users_tbl usermodel = new users_tbl();
+            return View(usermodel);
+
+        }
+        [HttpPost]
+        public ActionResult update(int id, users_tbl usermodel)
+        {
+            using (HassenDataBaseEntities1 entities=new HassenDataBaseEntities1())
+            {
+                var neumodel = entities.users_tbl.Where(x => x.id == id).FirstOrDefault();
+                neumodel.vorname = usermodel.vorname;
+                neumodel.nachname = usermodel.nachname;
+                neumodel.id = usermodel.id;
+                neumodel.mobile = usermodel.mobile;
+                neumodel.email = usermodel.email;
+                neumodel.adresse = usermodel.adresse;
+                neumodel.passeword = usermodel.passeword;
+                entities.SaveChanges();
+                return View("Update", new users_tbl());
+            }
+        }
     }
 }

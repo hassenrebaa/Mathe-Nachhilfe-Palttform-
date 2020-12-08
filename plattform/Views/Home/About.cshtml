@@ -1,14 +1,15 @@
-﻿@model plattform.users_tbl
-
+﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "About";
 }
 
 <h1>Mathe Nachhilfe Plattform</h1>
+
+<h2> About uns</h2>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>About  </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -223,52 +224,61 @@
 
             <img src="~/image/undraw_Work_time_re_hdyv.svg" />
         </div>
-        <div class="login-container">
-            @using (Html.BeginForm("loginn", "Login", FormMethod.Post))
-            {
-                <br />
-                <img class="avatar" src="~/image/undraw_male_avatar_323b.svg" />
-
-                <h2>Welcome</h2>
-                <div class="input-div one focus">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div>
-                        @Html.LabelFor(model => model.email)
-                        @Html.EditorFor(model => model.email)
-                    </div>
-                    <p>@Html.ValidationMessageFor(model => model.email)</p>
-                </div>
-                <div class="input-div two">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div>
-                        @Html.LabelFor(model => model.passeword)
-                        @Html.EditorFor(model => model.passeword)
-                    </div>
-
-                    <p>@Html.ValidationMessageFor(model => model.passeword)</p>
-                </div>
-                
-
-
-                <input type="submit" id="button" class="btn" name="name" value="Login" />
-
-                <label class="field-validation-error">@Html.DisplayFor(model => model)</label>
-                <a>@Html.ActionLink("Register as New User","AddOrEdit","User")
-            </a>
-                
-            }
-        </div>
-
     </div>
-    <script type=" text/javascript" src="~/js/site.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <h2>Mathe-Nachhilfe-Plattform</h2>
+
+    <h2>Datenschützerklärung</h2>
+    <p>
+        Datenschutzerklärung
+
+        In dieser Datenschutzerklärung informieren wir Sie über die Verarbeitung personenbezogener Daten bei der Nutzung dieser Website.
+
+        Verantwortlicher
+
+        Verantwortlich für die Datenverarbeitung ist
+        Name, Adresse, Telefonnummer und E-Mail-Adresse des Websitebetreibers ergänzen
+
+        Datenschutzbeauftragter
+
+        Die Angabe ist nur erforderlich bei Pflicht zur Bestellung eines Datenschutzbeauftragten. Diese besteht in folgenden Fällen:
+
+        Im Unternehmen verarbeiten mindestens 10 Mitarbeiter regelmäßig automatisiert Daten wie z. B. mit Computern.
+        Im Unternehmen verarbeiten Sie unabhängig von der Mitarbeiterzahl mindestens eine Kategorie folgender personenbezogener Daten: ethnische Herkunft, Rasse, politische Meinung, religiöse Überzeugung, Gewerkschaftszugehörigkeit, Gesundheit oder Sexualleben
+        Mittelpunkt der Geschäftstätigkeit ist die Übermittlung personenbezogener Daten wie sie z. B. eine Auskunftei, ein Adressverlag oder ein Markt- und Meinungsforschungsinstitut ausübt.
+        Der Datenschutzbeauftragte ist unter der Adresse des Verantwortlichen zu erreichen. Bitte ergänzen Sie die Adresse bei der Kontaktaufnahme per Post mit dem Hinweis "Datenschutzbeauftragter". Per E-Mail erreichen Sie unseren Datenschutzbeauftragten über die folgende E-Mail-Adresse: E-Mail-Adresse des Datenschutzbeauftragten einfügen
+
+        Personenbezogene Daten
+
+        Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden "betroffene Person") beziehen. Als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung oder zu einem oder mehreren besonderen Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind.
+
+        Daten beim Websiteaufruf
+
+        Wenn Sie diese Website nur nutzen, um sich zu informieren und keine Daten angeben, dann verarbeiten wir nur die Daten, die zur Anzeige der Website auf dem von Ihnen verwendeten internetfähigen Gerät erforderlich sind. Das sind insbesondere:
+
+        IP-Adresse
+        Datum und Uhrzeit der Anfrage
+        jeweils übertragene Datenmenge
+        die Website, von der die Anforderung kommt
+        Browsertyp und Browserversion
+        Betriebssystem
+        Rechtsgrundlage für die Verarbeitung dieser Daten sind berechtigte Interessen gemäß Art. 6 Abs. 1 UAbs. 1 Buchstabe f) DSGVO, um die Darstellung der Website grundsätzlich zu ermöglichen.
+
+        Darüber hinaus können Sie verschiedene Leistungen auf der Website nutzen, bei der weitere personenbezogene und nicht personenbezogene Daten verarbeitet werden.
+
+        Ihre Rechte
+
+        Als betroffene Person haben Sie folgende Rechte:
+
+        Sie haben ein Auskunftsrecht bezüglich der Sie betreffenden personenbezogenen Daten, die der Verantwortliche verarbeitet (Art. 15 DSGVO),
+        Sie haben das Recht auf Berichtigung der Sie betreffenden Daten, wenn diese unrichtig oder unvollständig gespeichert werden (Art. 16 DSGVO),
+        Sie haben das Recht auf Löschung (Art. 17 DSGVO),
+        Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen (Art. 18 DSGVO),
+        Sie haben das Recht auf Datenübertragbarkeit (Art. 20 DSGVO),
+        Sie haben ein Widerspruchsrecht gegen die Verarbeitung Sie betreffender personenbezogener Daten (Art. 21 DSGVO),
+        Sie haben das Recht nicht einer ausschließlich auf einer automatisierten Verarbeitung – einschließlich Profiling – beruhenden Entscheidung unterworfen zu werden, die Ihnen gegenüber rechtliche Wirkung entfaltet oder sie in ähnlicher Weise erheblich beeinträchtigt (Art. 22 DSGVO),
+        Sie haben das Recht, sich bei einem vermuteten Verstoß gegen das Datenschutzrecht bei der zuständigen Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Zuständig ist die Aufsichtsbehörde an Ihrem üblichen Aufenthaltsort, Arbeitsplatz oder am Ort des vermuteten Verstoßes.
+
+    </p>
+   
 </body>
 </html>
-
-

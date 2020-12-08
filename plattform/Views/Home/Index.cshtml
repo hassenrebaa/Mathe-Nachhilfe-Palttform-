@@ -1,14 +1,15 @@
-﻿@model plattform.users_tbl
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
 <h1>Mathe Nachhilfe Plattform</h1>
+
+<h2>  Startseite</h2>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>About  </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -55,7 +56,7 @@
             align-items: center;
         }
 
-            .img img {
+            .img img{
                 width: 500px;
             }
 
@@ -223,52 +224,66 @@
 
             <img src="~/image/undraw_Work_time_re_hdyv.svg" />
         </div>
-        <div class="login-container">
-            @using (Html.BeginForm("loginn", "Login", FormMethod.Post))
-            {
-                <br />
-                <img class="avatar" src="~/image/undraw_male_avatar_323b.svg" />
-
-                <h2>Welcome</h2>
-                <div class="input-div one focus">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div>
-                        @Html.LabelFor(model => model.email)
-                        @Html.EditorFor(model => model.email)
-                    </div>
-                    <p>@Html.ValidationMessageFor(model => model.email)</p>
-                </div>
-                <div class="input-div two">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div>
-                        @Html.LabelFor(model => model.passeword)
-                        @Html.EditorFor(model => model.passeword)
-                    </div>
-
-                    <p>@Html.ValidationMessageFor(model => model.passeword)</p>
-                </div>
-                
-
-
-                <input type="submit" id="button" class="btn" name="name" value="Login" />
-
-                <label class="field-validation-error">@Html.DisplayFor(model => model)</label>
-                <a>@Html.ActionLink("Register as New User","AddOrEdit","User")
-            </a>
-                
-            }
-        </div>
-
     </div>
-    <script type=" text/javascript" src="~/js/site.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <div class="navbar-collapse collapse">
+       
+
+            
+            <h2>@Html.ActionLink("Login", "Index", "Login")</h2>
+
+            <h2>@Html.ActionLink("Registrien As New User ", "AddOrEdit", "User")</h2>
+           
+       
+    </div>
+    <h2 class="section-title mb-3">
+        Nos Cours à Succès
+    </h2> <p class="lead">
+        Vous trouverez ici tout ce dont vous avez besoin, tous les documents mathématiques de vos professeurs et les collections d'exercices de cette année et des années précédentes
+    </p> <div class="d-flex flex-column align-items-center justify-content-center"><span aria-hidden="true" class="mx-auto mt-5 mb-4 spinner-grow" style="width:64px;height:64px"><!----></span> <p class="text-capitalize">récupération cours...</p></div></div></div></section> <div id="team-section" class="site-section border-bottom">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title mb-3">
+                        Apprenez des experts reconnus!
+                    </h2> <p class="lead">
+                        Mathe-Nachhilfe -Plattform rassemble des formateurs hautement qualifiés et
+                        passionnés par l'évolution personnelle pour vous offrir des
+                        expériences d’apprentissage de classe mondiale, en ligne et hors
+                        ligne.
+                    </p>
+                </div>
+            </div> <div class="row"></div>
+        </div>
+    </div> <section class="site-section">
+        <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h2 class="section-title mb-3 text-capitalize">
+                        Voici à quoi vous pouvez vous attendre avec Mathe-Nachhilfe-Plattform
+                    </h2>
+                </div>
+            </div> <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_feature">
+                        <div class="icon"><span class="flaticon-student"></span></div> <div class="desc">
+                            <h4 class="mt-3 mb-2">
+                                Des Formateurs transformationnels
+                            </h4> <p>
+                                Accélérez votre évolution personnelle en apprenant en ligne et à votre rythme des plus grands esprits.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
 </body>
 </html>
-
 
