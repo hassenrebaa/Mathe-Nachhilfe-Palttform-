@@ -29,7 +29,7 @@ namespace plattform.Controllers
             users_tbl usermodel = new users_tbl();
             return View(usermodel);
         }
-        // Login 
+        // Login  funktion
         [HttpPost]
         public ActionResult AddOrEdit (users_tbl usermodel)
         {
