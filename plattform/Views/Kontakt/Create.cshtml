@@ -1,0 +1,73 @@
+﻿@model plattform.Kontakt_tbl
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="img">
+
+            <img src="~/image/undraw_Work_time_re_hdyv.svg" />
+        </div>
+    </div>
+    <section class="cbg_wildsand contact-forms">
+        <div id="wrapper" class="wrapper clearfix">
+            <div class="column col-12 cbg_wildsand cf_mineshaft1 kontakt">
+                <h2 class="hl_optik1">Unverbindliche Anfrage</h2>
+                <div class="form-errors"></div>
+                <form name="contact" method="post" action="~/Controllers/kontakt/Create" id="contact_form">
+                    <input type="hidden" name="skey" value="5fce08e576029" />
+                    <input type="hidden" name="language" value="de" />
+                    <div class="kontakt_spaltenwrapper">
+                        <div class="kontakt_linkespalte ">
+
+                            <div class="column col-6 select_anrede">
+                                <select @Html.EditorFor(model => model.typ) name="typ" id="select_anrede">
+                                    <option value="Herr">Herr</option>
+                                    <option value="Frau">Frau</option>
+                                    <option value="Divers">divers</option>
+                                </select>
+                                @Html.ValidationMessageFor(model => model.typ, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                             @Html.EditorFor(model => model.vorname) 
+                            @Html.ValidationMessageFor(model => model.vorname, "", new { @class = "text-danger" })
+                             @Html.EditorFor(model => model.nachname)
+                            @Html.ValidationMessageFor(model => model.nachname, "", new { @class = "text-danger" })
+
+
+                            <div class="clearfix"></div>
+
+                            @Html.EditorFor(model => model.email)
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+                              @Html.EditorFor(model => model.telefon) 
+                            @Html.ValidationMessageFor(model => model.telefon, "", new { @class = "text-danger" })
+                        <div class="spez">
+                             
+                            <textarea model=Text class="textarea_spez" name="Text" placeholder="Beschreiben Sie hier gerne weiter Ihren Bedarf!"></textarea>
+                            @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                        </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </section>
+                        }
+
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>

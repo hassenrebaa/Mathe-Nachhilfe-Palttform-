@@ -1,0 +1,66 @@
+﻿@model plattform.Kontakt_tbl
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Kontakt_tbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.typ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vorname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vorname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nachname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nachname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -11,13 +11,25 @@ namespace plattform
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+
     public partial class Dokuments_tbl
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "This Field is Required please")]
         public string title { get; set; }
+        [Required(ErrorMessage = "This Field is Required please")]
         public string author { get; set; }
-        public string FileLocation { get; set; }
-        public byte[] Datei { get; set; }
+        
+        [DisplayName(" Bezei chnung")]
+        public string Bezeichnung { get; set; }
+        [Required(ErrorMessage = "This Field is Required please")]
+        public string SerieNr { get; set; }
+        [Required(ErrorMessage = "This Field is Required please")]
+        public byte[] FileContent { get; set; }
+       
+        public HttpPostedFileBase Datei { get; set; }
     }
 }

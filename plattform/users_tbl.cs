@@ -20,6 +20,9 @@ namespace plattform
         public string adresse { get; set; }
         public string email { get; set; }
         public string mobile { get; set; }
-        public string passeword { get; set; }
+        public string password { get; set; }
+        public string title { get; set; }
+
+        public string  LoginErrorMessage { get; set; }
     }
 }

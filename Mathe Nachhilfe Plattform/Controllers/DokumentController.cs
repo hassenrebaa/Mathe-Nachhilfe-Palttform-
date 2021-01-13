@@ -19,8 +19,10 @@ namespace Mathe_Nachhilfe_Plattform.Controllers
     {
         private readonly IDokumentstoreRepository<dokument> DokumentRespository;
         private readonly IDokumentstoreRepository<user> UserRepository;
+        [Obsolete]
         private readonly IHostingEnvironment hosting;
 
+        [Obsolete]
         public DokumentController(IDokumentstoreRepository<dokument> DokumentRespository,
             IDokumentstoreRepository<user> UserRepository,
             IHostingEnvironment hosting)

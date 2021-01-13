@@ -8,6 +8,8 @@ namespace plattform.Controllers
 {
     public class LoginController : Controller
     {
+       
+
         // GET: Login
         public ActionResult Index()
         {
@@ -16,11 +18,13 @@ namespace plattform.Controllers
         [HttpPost]
          public ActionResult loginn(users_tbl usermodel)
         {
-            using (HassenDataBaseEntities2 db = new HassenDataBaseEntities2())
+            using (HassenDataBaseEntities7 db = new HassenDataBaseEntities7())
             {
-                var userDetails = db.users_tbl.Where(x => x.email == usermodel.email && x.passeword == usermodel.passeword).FirstOrDefault();
+                var userDetails = db.user_tbl.Where(x => x.email == usermodel.email && x.password == usermodel.password).FirstOrDefault();
                 if (userDetails == null)
                 {
+                    
+                    usermodel.LoginErrorMessage = "Falsch Username oder Password";
 
                     return View("Index", usermodel);
                 }

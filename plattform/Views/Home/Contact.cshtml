@@ -1,9 +1,9 @@
-﻿
+﻿@model plattform.Kontakt_tbl
 @{
     ViewBag.Title = "Contact";
 }
 
-<h1>Mathe Nachhilfe Plattform</h1>
+<h1>Mathe-Nachhilfe-Plattform</h1>
 <h2>Kontakt </h2>
 <!DOCTYPE html>
 <html>
@@ -178,11 +178,11 @@
             color: #555;
         }
 
-       
 
-            a:hover {
-                color: #38d39f;
-            }
+
+        a:hover {
+            color: #38d39f;
+        }
 
         .btn {
             display: block;
@@ -210,69 +210,79 @@
 
 </head>
 <body>
+    @using (Html.BeginForm("Create", "Kontakt", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="container">
-        <div class="img">
+        <div class="container">
+            <div class="img">
 
-            <img src="~/image/undraw_Work_time_re_hdyv.svg" />
+                <img src="~/image/undraw_Work_time_re_hdyv.svg" />
+            </div>
         </div>
-    </div>
-    <section class="cbg_wildsand contact-forms">
-        <div id="wrapper" class="wrapper clearfix">
-            <div class="column col-12 cbg_wildsand cf_mineshaft1 kontakt">
-                <h2 class="hl_optik1">Unverbindliche Anfrage</h2>
-                <div class="form-errors"></div>
-                <form name="contact" method="post" action="/lang_less/kontakt/anfrage/send" id="contact_form">
-                    <input type="hidden" name="skey" value="5fce08e576029" />
-                    <input type="hidden" name="language" value="de" />
-                    <div class="kontakt_spaltenwrapper">
-                        <div class="kontakt_linkespalte ">
+        <section class="cbg_wildsand contact-forms">
+            <div id="wrapper" class="wrapper clearfix">
+                <div class="column col-12 cbg_wildsand cf_mineshaft1 kontakt">
+                    <h2 class="hl_optik1">Unverbindliche Anfrage</h2>
+                    <div class="form-errors"></div>
+                    <form name="contact" method="post" action="~/Controllers/kontakt/Create" id="contact_form">
+                        <input type="hidden" name="skey" value="5fce08e576029" />
+                        <input type="hidden" name="language" value="de" />
+                        <div class="kontakt_spaltenwrapper">
+                            <div class="kontakt_linkespalte ">
 
-                            <div class="column col-6 select_anrede">
-                                <select name="anrede" id="select_anrede">
-                                    <option value="Herr">Herr</option>
-                                    <option value="Frau">Frau</option>
-                                    <option value="Divers">divers</option>
-                                </select>
+                                <div class="column col-6 select_anrede">
+                                    <select name="typ" id="select_anrede">
+                                        <option value="Herr">Herr</option>
+                                        <option value="Frau">Frau</option>
+                                        <option value="Divers">divers</option>
+                                    </select>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                                <input class="textarea" id="name-1" type="text" name="vorname" placeholder="Vorname *" required value="">
+
+                                <input class="textarea" id="name-2" type="text" name="nachname" placeholder="Nachname *" required value="">
+
+
+
+                                <div class="clearfix"></div>
+                                <input class="textarea telefon1 placeholder" type="text" name="email" placeholder="E-Mail *" required value="">
+                                <input class="textarea telefon2 placeholder" type="tel" name="telefon" placeholder="Telefon *" required value="">
+                                <div class="spez">
+                                    <textarea class="textarea_spez" name="Text" placeholder="Beschreiben Sie hier gerne weiter Ihren Bedarf!"></textarea>
+                                </div>
+
+                                <div class="">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Unverbindliche Anfrage Senden" name="Unverbindliche Anfrage senden" placeholder=" Unverbindliche Anfrage senden" class="btn btn-default" />
+
+                                    </div>
+                                </div>
+
                             </div>
-
-                            <div class="clearfix"></div>
-
-                            <input class="textarea" id="name-1" type="text" name="vorname" placeholder="Vorname *" required value="">
-
-                            <input class="textarea" id="name-2" type="text" name="nachname" placeholder="Nachname *" required value="">
-
-
-
-                            <div class="clearfix"></div>
-                            <input class="textarea telefon1 placeholder" type="text" name="email" placeholder="E-Mail *" required value="">
-                            <input class="textarea telefon2 placeholder" type="tel" name="telefon" placeholder="Telefon *" required value="">
-                            <div class="spez">
-                                <textarea class="textarea_spez" name="anfrage" placeholder="Beschreiben Sie hier gerne weiter Ihren Bedarf!"></textarea>
-                            </div>
-
-                            <input type="submit" class="" value="Unverbindliche Anfrage senden" onclick="submitForm();">
 
                         </div>
-                    </div>
-                    <h2>Sonst </h2>
-                    <br />
-                   <p class="absatz">
-                    Téléphone :+216.95319637
-                       <br />
-                    Télécopie :+216.75679515
-                    </p>
+                        <h2>Sonst </h2>
+                        <br />
+                        <p class="absatz">
+                            Téléphone :+216.95319637
+                            <br />
+                            Télécopie :+216.75679515
+                        </p>
 
-                    <p class="absatz">
-                   
-                    <span >E-Mail: </span><a href="mailto:info@MatheNachhilfePlattform.com">info@MatheNachhilfePlattform.com</a>
-                    </p>
-                </form>
+                        <p class="absatz">
 
+                            <span>E-Mail: </span><a href="mailto:info@MatheNachhilfePlattform.com">info@MatheNachhilfePlattform.com</a>
+                        </p>
+                    </form>
+
+
+                </div>
 
             </div>
-
-        </div>
-    </section>
+        </section>
+    }
 </body>
 </html>
