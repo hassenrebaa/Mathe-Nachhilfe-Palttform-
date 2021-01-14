@@ -614,6 +614,7 @@
     <Content Include="Views\Kontakt\Create.cshtml" />
     <Content Include="Views\UsertestEncrypt\Createent.cshtml" />
     <Content Include="Views\UsertestEncrypt\Index.cshtml" />
+    <Content Include="Views\User\VerifyAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadedFiles\" />

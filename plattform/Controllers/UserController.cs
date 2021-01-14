@@ -26,13 +26,16 @@ namespace plattform.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult Add()
+        public ActionResult AddOrEdit(int id = 0)
+#pragma warning restore format
         {
-            return View();
+            user_tbl usermodel = new user_tbl();
+            return View(usermodel);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add([Bind(Exclude = "IsEmailVerified, ActivationCode")] user_tbl users)
+        public ActionResult AddOrEdit([Bind(Exclude = "IsEmailVerified, ActivationCode")] user_tbl users)
         {
             bool Status = false;
             string message = "";
@@ -48,7 +51,7 @@ namespace plattform.Controllers
                 }
 
                 users.ActivationCode = Guid.NewGuid();
-                users.password = Crypto.Hash(users.password);
+                users.password = users.password;
                 users.IsEmailverified = false;
                 using (HassenDataBaseEntities7 _db= new HassenDataBaseEntities7())
                 {
@@ -63,9 +66,9 @@ namespace plattform.Controllers
             {
                 message = "Invalid Request";
             }
-            ViewBag.Message = message;
+            
             ViewBag.Status = Status;
-            return View(users);
+            return View();
         }
         
         public bool IsEmailExist(string email)
@@ -83,7 +86,7 @@ namespace plattform.Controllers
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
             var fromEmail = new MailAddress("hassenrebaa9@gmail.com", "Mathe-Nachhilfe-Plattform");
             var toEmail = new MailAddress(email);
-            var fromEmailPassword = "984314A"; //Replace with actual password
+            var fromEmailPassword = "27Hassen1997"; //Replace with actual password
             string subject = "Your account is successfully created";
 
             string body = "<br/><br/>We are excited to tell you that your Dotnet Awesome account is" +
@@ -109,15 +112,10 @@ namespace plattform.Controllers
         }
 
 #pragma warning disable format
-        public ActionResult AddOrEdit(int id=0)
-#pragma warning restore format
-        {
-            user_tbl usermodel = new user_tbl();
-            return View(usermodel);
-        }
+     
         // Login  funktion
         [HttpPost]
-        public ActionResult AddOrEdit (user_tbl usermodel)
+        public ActionResult alteAddOrEdit (user_tbl usermodel)
         {
             using(HassenDataBaseEntities7 model =new HassenDataBaseEntities7())
             {

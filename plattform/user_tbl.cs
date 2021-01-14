@@ -22,9 +22,8 @@ namespace plattform
         public string email { get; set; }
         public string mobile { get; set; }
         [Required]
-        [DataType(DataType.Password)]
         [MinLength(6,ErrorMessage="Mindesten 6 Zeichen Bitte ")]
-       
+        [DataType(DataType.Password)]
         public string password { get; set; }
         public string title { get; set; }
         public Nullable<bool> IsEmailverified { get; set; }
