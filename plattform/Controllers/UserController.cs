@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -21,10 +23,25 @@ namespace plattform.Controllers
             return View(test);
         }
         // GET: User
+
         public ActionResult Index()
-        {
+        { 
             return View();
         }
+
+
+        [HttpGet]
+        public async Task<ActionResult> Index(string searchString)
+        {
+            ViewData["Getdetails"] = searchString;
+            var modelquery = from x in _db.user_tbl select x;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                modelquery = modelquery.Where(x => x.email.Contains(searchString));
+            }
+            return View(await modelquery.AsNoTracking().ToListAsync());
+        }
+
         [HttpGet]
         public ActionResult AddOrEdit(int id = 0)
 #pragma warning restore format
@@ -51,14 +68,14 @@ namespace plattform.Controllers
                 }
 
                 users.ActivationCode = Guid.NewGuid();
-                users.password = users.password;
+                users.password = Crypto.Hash(users.password);
                 users.IsEmailverified = false;
                 using (HassenDataBaseEntities7 _db= new HassenDataBaseEntities7())
                 {
                     _db.user_tbl.Add(users);
                     _db.SaveChanges();
                     SendVerificationLinkEmail(users.email, users.ActivationCode.ToString());
-                    message = "Registration erfolgreich Konto Aktiviation Link " + "Email wurd an Ihre Email breits gesendet" + users.email;
+                    message = "Registration erfolgreich Konto Aktiviation Link " + "Email wurd an Ihre Email breits gesendet :" + users.email;
                     Status = true;
                 }
             }
@@ -66,11 +83,37 @@ namespace plattform.Controllers
             {
                 message = "Invalid Request";
             }
-            
+
+            ViewBag.Message = message;
             ViewBag.Status = Status;
             return View();
         }
-        
+        [HttpGet]
+
+        // VerifyAccount
+        public ActionResult VerifyAccount(string id)
+        {
+            bool Status = false;
+            using(HassenDataBaseEntities7 dc =new HassenDataBaseEntities7())
+            {
+                dc.Configuration.ValidateOnSaveEnabled = false;  // this Line I Have added here to avoid 
+                var v = dc.user_tbl.Where(a => a.ActivationCode == new Guid(id)).FirstOrDefault();
+                if(v != null)
+                {
+                    v.IsEmailverified = true;
+                    dc.SaveChanges();
+                    Status = true;
+                }
+                else
+                {
+                    ViewBag.Message = "Invalid Request";
+                }
+            }
+            ViewBag.Status = true;
+            return View();
+        }
+
+        [NonAction]
         public bool IsEmailExist(string email)
         {
             using(HassenDataBaseEntities7 user =new HassenDataBaseEntities7())
@@ -79,6 +122,7 @@ namespace plattform.Controllers
                 return v != null;
             }
         }
+        [NonAction]
         
         public void SendVerificationLinkEmail (string email ,string activiationCode)
         {
@@ -89,7 +133,7 @@ namespace plattform.Controllers
             var fromEmailPassword = "27Hassen1997"; //Replace with actual password
             string subject = "Your account is successfully created";
 
-            string body = "<br/><br/>We are excited to tell you that your Dotnet Awesome account is" +
+            string body = "<br/><br/>We are excited to tell you that your Mathe-Nachhilfe-Account account is" +
                    " successfully created. Please click on the below link to verify your account" +
                    " <br/><br/><a href='" + link + "'>" + link + "</a> ";
 

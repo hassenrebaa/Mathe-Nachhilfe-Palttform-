@@ -171,45 +171,68 @@ namespace  plattform.Controllers
         [HttpGet]
         public FileResult DownLoadFile(int id)
         {
-            List<Doc_tbl> ObjFiles = _db.Doc_tbl.ToList();
-            var FileById = (from x in ObjFiles where x.id.Equals(id) select new { x.titel, x.FileContent }).ToList().FirstOrDefault();
+            List<DcModel> ObjFiles = GetFileList();
+            var FileById = (from x in ObjFiles where x.id.Equals(id) select new { x.FileName, x.FileContent }).ToList().FirstOrDefault();
 
-            return File(FileById.FileContent, "appliction/pdf", FileById.titel);
+            return File(FileById.FileContent, "appliction/pdf", FileById.FileName);
+        }
+        [HttpGet]
+        public PartialViewResult FileDetails()
+        {
+            List<DcModel> DetList = GetFileList();
+            return PartialView("FileDetails", DetList);
+        }
+        private List<DcModel> GetFileList()
+        {
+            List<DcModel> DetList = new List<DcModel>();
+            Database();
+           
+            DetList = SqlMapper.Query<DcModel>
+                (con, "GetFileDetails", CommandType.StoredProcedure).ToList();
+            con.Close();
+            return DetList;
         }
         [HttpGet]
         protected void DownloadF(object sender ,EventArgs e)
-        {
-            int id =int.Parse( (sender as LinkButton).CommandArgument);
-            byte[] bytes;
-            string Filename, ContentType;
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using( SqlConnection con =new SqlConnection(constr))
+            
+        {    using (HassenDataBaseEntitiesDokument entities = new HassenDataBaseEntitiesDokument())
             {
-                using(SqlCommand cmd = new SqlCommand())
+
+
+                int id = int.Parse((sender as LinkButton).CommandArgument);
+                byte[] bytes;
+                string Filename, ContentType;
+                Database();
+                string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+               
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandText = "Select Name, Data, Content Type form tblFiles where Id=@Id";
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    cmd.Connection = con;
-                    con.Open();
-                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand())
                     {
-                        sdr.Read();
-                        bytes = (byte[])sdr["Data"];
-                        ContentType = sdr["ContentType"].ToString();
-                        Filename = sdr["Name"].ToString();
+                        cmd.CommandText = "Select Name, Data, Content Type form tblFiles where Id=@Id";
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Connection = con;
+                        con.Open();
+                        using (SqlDataReader sdr = cmd.ExecuteReader())
+                        {
+                            sdr.Read();
+                            bytes = (byte[])sdr["Data"];
+                            ContentType = sdr["ContentType"].ToString();
+                            Filename = sdr["Name"].ToString();
+                        }
+                        con.Close();
                     }
-                    con.Close();
                 }
+                Response.Clear();
+                Response.Buffer = true;
+                Response.Charset = "";
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.ContentType = ContentType;
+                Response.AppendHeader("Content-Disposition", "attachment ; filename=" + Filename);
+                Response.BinaryWrite(bytes);
+                Response.Flush();
+                Response.End();
             }
-            Response.Clear();
-            Response.Buffer = true;
-            Response.Charset = "";
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.ContentType = ContentType;
-            Response.AppendHeader("Content-Disposition", "attachment ; filename=" + Filename);
-            Response.BinaryWrite(bytes);
-            Response.Flush();
-            Response.End();
 
         }
         //GET 

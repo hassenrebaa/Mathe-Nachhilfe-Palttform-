@@ -206,7 +206,7 @@
             background-position: right;
         }
 </style>
-@if (ViewBag.status != null && Convert.ToBoolean(ViewBag.Status))
+@if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
 {
     if (ViewBag.Message != null)
     {
@@ -268,6 +268,7 @@ else
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    @Html.ValidationMessage("EmailExist",new { @class = "text-danger"})
                 </div>
             </div>
 

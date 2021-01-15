@@ -24,5 +24,6 @@ namespace plattform
         public string title { get; set; }
 
         public string  LoginErrorMessage { get; set; }
+        public bool RemembreMe { get; internal set; }
     }
 }

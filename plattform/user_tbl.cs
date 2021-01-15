@@ -28,5 +28,7 @@ namespace plattform
         public string title { get; set; }
         public Nullable<bool> IsEmailverified { get; set; }
         public Nullable<System.Guid> ActivationCode { get; set; }
+        public bool RemembreMe { get; internal set; }
+        public string LoginErrorMessage { get; internal set; }
     }
 }
