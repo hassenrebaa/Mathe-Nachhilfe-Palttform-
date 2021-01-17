@@ -28,10 +28,66 @@ namespace plattform.Controllers
         { 
             return View();
         }
+        //fetch Data From Database to show in Datatable
+        public ActionResult GetData()
+        {
+            using(HassenDataBaseEntities7 db = new HassenDataBaseEntities7())
+            {
+                List<user_tbl> UserList = db.user_tbl.ToList<user_tbl>();
+                return Json(new { data = UserList }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public ActionResult StoreOrEdit (int id =0)
+        {
+            if (id == 0)
+                return View(new user_tbl());
+            else
+            {
+                using(HassenDataBaseEntities7 db =new HassenDataBaseEntities7())
+                {
+                    return View(db.user_tbl.Where(x => x.id == id).FirstOrDefault<user_tbl>());
+                }
+            }
+        }
+        [HttpPost]
+        public ActionResult StoreOrEdit (user_tbl usermodel)
+        {
+            using(HassenDataBaseEntities7 db =new HassenDataBaseEntities7())
+            {
+                if (usermodel.id == 0)
+                {
+                    db.user_tbl.Add(usermodel);
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Saved Successfully", JsonRequestBehavior.AllowGet });
+
+                }
+                else
+                {
+                    db.Entry(usermodel).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return Json(new { sucess = true, message = "Updated Successfully", JsonRequestBehavior.AllowGet });
+                }
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id )
+        {
+            using(HassenDataBaseEntities7 db =new HassenDataBaseEntities7())
+            {
+                user_tbl emp = db.user_tbl.Where(x => x.id == id).FirstOrDefault<user_tbl>();
+
+                db.user_tbl.Remove(emp);
+                db.SaveChanges();
+                return Json(new { sucess = true, message = "Deleted Successfully", JsonRequestBehavior.AllowGet });
+
+            }
+        }
 
 
         [HttpGet]
-        public async Task<ActionResult> Index(string searchString)
+        public async Task<ActionResult> Index(string searchString) 
         {
             ViewData["Getdetails"] = searchString;
             var modelquery = from x in _db.user_tbl select x;
@@ -182,6 +238,7 @@ namespace plattform.Controllers
         [HttpPost]
         public ActionResult update(int id, user_tbl usermodel)
         {
+            
             using (HassenDataBaseEntities7 entities = new HassenDataBaseEntities7())
             {
                 var neumodel = entities.user_tbl.Where(x => x.id == id).FirstOrDefault();
@@ -191,7 +248,8 @@ namespace plattform.Controllers
                 neumodel.mobile = usermodel.mobile;
                 neumodel.email = usermodel.email;
                 neumodel.adresse = usermodel.adresse;
-                neumodel.password = usermodel.password;
+              
+                usermodel.password = Crypto.Hash(neumodel.password);
                 entities.SaveChanges();
                 return View("Update", new user_tbl());
             }

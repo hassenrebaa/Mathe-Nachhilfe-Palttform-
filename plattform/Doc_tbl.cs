@@ -23,7 +23,7 @@ namespace plattform
         public string titel { get; set; }
         [DisplayName("Author")]
         public string author { get; set; }
-        [DisplayName("Bezei-chnung")]
+        [DisplayName("Be-zeichnung")]
         public string bezeichnung { get; set; }
         [DisplayName("SerienNr")]
         public string SerieNr { get; set; }

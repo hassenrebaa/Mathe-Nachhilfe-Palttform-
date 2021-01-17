@@ -11,12 +11,14 @@ namespace plattform
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class user_tbl
     {
         public int id { get; set; }
         public string vorname { get; set; }
+        [DisplayName("Nach-name")]
         public string nachname { get; set; }
         public string adresse { get; set; }
         public string email { get; set; }
@@ -24,7 +26,9 @@ namespace plattform
         [Required]
         [MinLength(6,ErrorMessage="Mindesten 6 Zeichen Bitte ")]
         [DataType(DataType.Password)]
+        [DisplayName("Passwort")]
         public string password { get; set; }
+        [DisplayName("Status")]
         public string title { get; set; }
         public Nullable<bool> IsEmailverified { get; set; }
         public Nullable<System.Guid> ActivationCode { get; set; }
