@@ -38,24 +38,6 @@ namespace  plattform.Controllers
             return View(list);
         }
         
-        
-        
-
-
-
-        
-        
-             
-
-
-                
-
-
-
-       
-
-       
-    
     [HttpGet]
     public async Task<ActionResult> Index(string searchString)
         {

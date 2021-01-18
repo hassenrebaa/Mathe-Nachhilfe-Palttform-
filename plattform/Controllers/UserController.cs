@@ -186,7 +186,7 @@ namespace plattform.Controllers
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
             var fromEmail = new MailAddress("hassenrebaa9@gmail.com", "Mathe-Nachhilfe-Plattform");
             var toEmail = new MailAddress(email);
-            var fromEmailPassword = "27Hassen1997"; //Replace with actual password
+            var fromEmailPassword = "*************"; //Replace with actual password
             string subject = "Your account is successfully created";
 
             string body = "<br/><br/>We are excited to tell you that your Mathe-Nachhilfe-Account account is" +
