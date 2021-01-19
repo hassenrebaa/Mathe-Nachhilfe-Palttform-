@@ -70,7 +70,7 @@ namespace plattform.Controllers
                 }
             }
         }
-
+        // Delete 
         [HttpPost]
         public ActionResult Delete(int id )
         {
@@ -85,7 +85,7 @@ namespace plattform.Controllers
             }
         }
 
-
+        // User List Sortieren 
         [HttpGet]
         public async Task<ActionResult> Index(string searchString) 
         {
@@ -105,6 +105,7 @@ namespace plattform.Controllers
             user_tbl usermodel = new user_tbl();
             return View(usermodel);
         }
+        // Add User 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -144,6 +145,7 @@ namespace plattform.Controllers
             ViewBag.Status = Status;
             return View();
         }
+        // Account verification
         [HttpGet]
 
         // VerifyAccount
@@ -168,6 +170,7 @@ namespace plattform.Controllers
             ViewBag.Status = true;
             return View();
         }
+        // überprüfen ob das Email schon exixtiert im DB
 
         [NonAction]
         public bool IsEmailExist(string email)
@@ -179,14 +182,14 @@ namespace plattform.Controllers
             }
         }
         [NonAction]
-        
+        // Email Senden 
         public void SendVerificationLinkEmail (string email ,string activiationCode)
         {
             var verifyUrl = "/User/VerifyAccount/" + activiationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
             var fromEmail = new MailAddress("hassenrebaa9@gmail.com", "Mathe-Nachhilfe-Plattform");
             var toEmail = new MailAddress(email);
-            var fromEmailPassword = "*************"; //Replace with actual password
+            var fromEmailPassword = "27Hassen1997"; //Replace with actual password
             string subject = "Your account is successfully created";
 
             string body = "<br/><br/>We are excited to tell you that your Mathe-Nachhilfe-Account account is" +

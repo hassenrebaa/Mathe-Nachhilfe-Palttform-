@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<a id="Logout">@Html.ActionLink("Logout", "Index", "Login")</a>
 <form method="post">
     <input type="search" placeholder="Suchen..." value="@ViewData["Getdetails"]" name="searchString" style="width:500px;" />
     <input type="submit" onclick="click()" value="Search" id="Search" />
@@ -121,3 +121,8 @@
      }
 
 </script>
+<style>
+    #Logout {
+        margin-left: 1000px;
+    }
+</style>

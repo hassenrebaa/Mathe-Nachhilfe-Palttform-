@@ -4,7 +4,9 @@
 }
 
 
-<h1>Mathe-Nachhilfe-Plattform</h1>
+<h1>Mathe-Nachhilfe-Plattform</h1>  
+<a id="Logout">@Html.ActionLink("Logout", "Index", "Login")</a>        
+
 <h2> Welcome</h2>
 <!DOCTYPE html>
 <html>
@@ -18,6 +20,9 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+        }
+        #Logout {
+            margin-left:1000px;
         }
 
         #button {
@@ -212,13 +217,18 @@
 </head>
 <body>
 
+
     <div class="container">
+
+
         <div class="img">
 
             <img src="~/image/undraw_Work_time_re_hdyv.svg" />
         </div>
     </div>
+    
     <div class="navbar-collapse collapse">
+
 
 
 
@@ -231,4 +241,5 @@
 
     </div>
 </body>
+
 </html>

@@ -5,6 +5,7 @@
 }
 
 <h1>Mathe-Nachhilfe-Plattform</h1>
+<a id="Logout">@Html.ActionLink("Logout", "Index", "Login")</a>
 <h2> Welcome </h2>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,7 @@
 
     <style>
         {
-            padding: 0; 
+            padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
@@ -23,6 +24,9 @@
         #button {
             height: 30;
             width: 30;
+        }
+        #Logout {
+            margin-left: 1000px;
         }
 
         body {
@@ -269,7 +273,7 @@
                 </div>
             </div>
 
-           
+
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -279,9 +283,9 @@
         </div>
     }
 
-<div>
-    @Html.ActionLink("Startseite", "afterLogin", "User")
-    
-</div>
-    </body>
+    <div>
+        @Html.ActionLink("Startseite", "afterLogin", "User")
+
+    </div>
+</body>
 </html>

@@ -3,13 +3,18 @@
 @{
     ViewBag.Title = "Update";
 }
-
+<a id="Logout">@Html.ActionLink("Logout", "Index", "Login")</a>
 <h2>Update</h2>
+<style>
+    #Logout {
+        margin-left: 1000px;
+    }
+</style>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Doc_tbl</h4>
         <hr />

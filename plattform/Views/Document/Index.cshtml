@@ -4,9 +4,16 @@
     ViewBag.Title = "Index";
 }
 <h1>Mathe-Nachhilfe-Plattform</h1>
+<a id="Logout">@Html.ActionLink("Logout", "Index", "Login")</a>
 <h2>Document View</h2>
 <!DOCTYPE html>
+<style>
+    #Logout {
+        margin-left: 1000px;
+    }
+</style>
 <html>
+
 <head>
     <title>Document View</title>
     <meta charset="UTF-8">
@@ -17,7 +24,7 @@
 </head>
 <body>
 
-    <div class="container" >
+    <div class="container">
         <div class="img">
 
             <img src="~/image/undraw_Work_time_re_hdyv.svg" />
@@ -26,16 +33,19 @@
         <p>
             @Html.ActionLink("Add Document ", "CreateDokument")
         </p>
-        <form method="get"  asp-action="Index">
+        <form method="get" asp-action="Index">
             <p>
                 <input type="search" placeholder="Suchen..." value="@ViewData["Getdetails"]" name="searchString" style="width:500px;" />
                 <input type="submit" value="Search" class="btn btn-primary" />
-              
+
                 <a href="~/Document/Index">Get ALL Info</a>
             </p>
         </form>
-        <table  asp:DataList id="DataList1" class="table">
+        <table asp:DataList id="DataList1" class="table">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.titel)
                 </th>
@@ -52,7 +62,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.FileName)
                 </th>
-                
+
 
 
 
@@ -62,6 +72,9 @@
             @foreach (var item in Model)
             {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.titel)
             </td>
@@ -78,14 +91,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FileName)
             </td>
-           
+
 
 
 
             <td>
-                
-                 @Html.ActionLink("Download","DownloadFile", new { id=item.id})
-               
+
+                @Html.ActionLink("Download", "DownloadFile", new { id = item.id })
+
 
             </td>
 
@@ -100,6 +113,6 @@
 
         </table>
 
-</div>
+    </div>
 </body>
 </html>
