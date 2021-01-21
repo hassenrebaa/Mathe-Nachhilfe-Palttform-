@@ -215,6 +215,8 @@
 
 
 </head>
+@if (Session["id"] != null)
+{
 <body>
 
 
@@ -240,6 +242,7 @@
         <a>@Html.ActionLink(" Add Dokument ", "CreateDokument", "Document")</a>
 
     </div>
+    
 </body>
-
+}
 </html>

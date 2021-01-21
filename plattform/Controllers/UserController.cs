@@ -189,7 +189,7 @@ namespace plattform.Controllers
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
             var fromEmail = new MailAddress("hassenrebaa9@gmail.com", "Mathe-Nachhilfe-Plattform");
             var toEmail = new MailAddress(email);
-            var fromEmailPassword = "27Hassen1997"; //Replace with actual password
+            var fromEmailPassword = "********"; //Replace with actual password
             string subject = "Your account is successfully created";
 
             string body = "<br/><br/>We are excited to tell you that your Mathe-Nachhilfe-Account account is" +
@@ -239,20 +239,23 @@ namespace plattform.Controllers
 
         }
         [HttpPost]
-        public ActionResult update(int id, user_tbl usermodel)
+        public ActionResult update(string vorname, user_tbl usermodel)
         {
             
             using (HassenDataBaseEntities7 entities = new HassenDataBaseEntities7())
             {
-                var neumodel = entities.user_tbl.Where(x => x.id == id).FirstOrDefault();
-                neumodel.vorname = usermodel.vorname;
-                neumodel.nachname = usermodel.nachname;
-                neumodel.id = usermodel.id;
-                neumodel.mobile = usermodel.mobile;
-                neumodel.email = usermodel.email;
-                neumodel.adresse = usermodel.adresse;
-              
-                usermodel.password = Crypto.Hash(neumodel.password);
+                
+                    var neumodel = entities.user_tbl.Where(x => x.vorname == vorname).FirstOrDefault();
+                     neumodel.email = usermodel.email;
+                     neumodel.vorname = usermodel.vorname;
+                     neumodel.nachname = usermodel.nachname;
+                   
+                     neumodel.mobile = usermodel.mobile;
+                   
+                     neumodel.adresse = usermodel.adresse;
+
+                     usermodel.password = Crypto.Hash(neumodel.password);
+               
                 entities.SaveChanges();
                 return View("Update", new user_tbl());
             }

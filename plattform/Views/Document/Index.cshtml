@@ -22,97 +22,100 @@
 
 
 </head>
-<body>
+@if (Session["id"] != null)
+{
+    <body>
 
-    <div class="container">
-        <div class="img">
+        <div class="container">
+            <div class="img">
 
-            <img src="~/image/undraw_Work_time_re_hdyv.svg" />
-        </div>
+                <img src="~/image/undraw_Work_time_re_hdyv.svg" />
+            </div>
 
-        <p>
-            @Html.ActionLink("Add Document ", "CreateDokument")
-        </p>
-        <form method="get" asp-action="Index">
             <p>
-                <input type="search" placeholder="Suchen..." value="@ViewData["Getdetails"]" name="searchString" style="width:500px;" />
-                <input type="submit" value="Search" class="btn btn-primary" />
-
-                <a href="~/Document/Index">Get ALL Info</a>
+                @Html.ActionLink("Add Document ", "CreateDokument")
             </p>
-        </form>
-        <table asp:DataList id="DataList1" class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.titel)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.author)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.bezeichnung)
-                </th>
+            <form method="get" asp-action="Index">
+                <p>
+                    <input type="search" placeholder="Suchen..." value="@ViewData["Getdetails"]" name="searchString" style="width:500px;" />
+                    <input type="submit" value="Search" class="btn btn-primary" />
 
-                <th>
-                    @Html.DisplayNameFor(model => model.SerieNr)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FileName)
-                </th>
+                    <a href="~/Document/Index">Get ALL Info</a>
+                </p>
+            </form>
+            <table asp:DataList id="DataList1" class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.titel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.author)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.bezeichnung)
+                    </th>
 
-
-
-
-
-            </tr>
-
-            @foreach (var item in Model)
-            {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.titel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bezeichnung)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.SerieNr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FileName)
-            </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SerieNr)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FileName)
+                    </th>
 
 
 
 
-            <td>
 
-                @Html.ActionLink("Download", "DownloadFile", new { id = item.id })
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.titel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.author)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.bezeichnung)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SerieNr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileName)
+                        </td>
 
 
-            </td>
 
 
-            <td>
-                @Html.ActionLink("Edit", "Update", "Document", new { id = item.id }) |
-                @Html.ActionLink("Details", "Index", "Document", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", "Document", new { id = item.id })
-            </td>
-        </tr>
-            }
+                        <td>
 
-        </table>
+                            @Html.ActionLink("Download", "DownloadFile", new { id = item.id })
 
-    </div>
-</body>
+
+                        </td>
+
+
+                        <td>
+                            @Html.ActionLink("Edit", "Update", "Document", new { id = item.id }) |
+                            @Html.ActionLink("Details", "Index", "Document", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "Delete", "Document", new { id = item.id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </body>
+}
 </html>

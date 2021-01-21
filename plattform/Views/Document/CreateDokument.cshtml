@@ -5,6 +5,7 @@
 }
 
 <h2>Create Document</h2>
+
 <a id="Logout">@Html.ActionLink("Logout", "Index", "Login")</a>
 <style>
     {
@@ -215,15 +216,18 @@
 @using (Html.BeginForm("CreateDokument", "Document", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <div id="Container">
+<div id="Container">
+    @if (Session["id"] != null)
+    {
         <div class="form-horizontal">
             <div class="img">
 
                 <img src="~/image/undraw_Work_time_re_hdyv.svg" />
             </div>
+
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-           
+
             <div class="form-group">
                 @Html.LabelFor(model => model.titel, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -278,14 +282,19 @@
 
         </div>
 
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
 
             </div>
         </div>
+    }
     </div>
-}
+
+        
+    
+    }
 
 <div>
     @Html.ActionLink("Document View", "Index")
